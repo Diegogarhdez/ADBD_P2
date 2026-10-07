@@ -12,7 +12,7 @@ El repositorio contiene los siguientes archivos:
 - `modelo.png`: representación gráfica del modelo en formato PNG.
 - `README.md`: documentación detallada del modelo Entidad/Relación.
 
-[./modelo.png]
+![modelo](./modelo.png)
 
 ---
 
