@@ -31,11 +31,11 @@ La entidad **Vivero** representa cada uno de los viveros gestionados por el sist
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `ID` | Identificador único del vivero. | Entero positivo. Ejemplo: `15` |
-| `Latitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-90` y `90`. Ejemplo: `28.4636` |
-| `Longitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-180` y `180`. Ejemplo: `-16.2518` |
+| Atributo | Descripción |
+|---|---|
+| `ID` | Identificador único del vivero. |
+| `Latitud` | Coordenada geográfica de la ubicación del vivero. |
+| `Longitud` | Coordenada geográfica de la ubicación del vivero. |
 
 ### Ejemplo
 
@@ -55,12 +55,12 @@ La entidad **Zona** representa una zona geográfica en la que se encuentran uno 
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `ID` | Identificador único de la zona. | Entero positivo. Ejemplo: `3` |
-| `Nombre Zona` | Nombre identificativo de la zona. | Cadena de caracteres. Ejemplo: `Zona Norte` |
-| `Latitud` | Coordenada geográfica asociada a la zona. | Número real entre `-90` y `90`. Ejemplo: `28.5000` |
-| `Longitud` | Coordenada geográfica asociada a la zona. | Número real entre `-180` y `180`. Ejemplo: `-16.3000` |
+| Atributo | Descripción |
+|---|---|
+| `ID` | Identificador único de la zona. |
+| `Nombre Zona` | Nombre identificativo de la zona. |
+| `Latitud` | Coordenada geográfica asociada a la zona. |
+| `Longitud` | Coordenada geográfica asociada a la zona. |
 
 ### Ejemplo
 
@@ -79,10 +79,10 @@ La entidad **Producto** representa los diferentes productos disponibles en las z
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `ID` | Identificador único del producto. | Entero positivo. Ejemplo: `102` |
-| `Tipo Producto` | Tipo o categoría del producto. | Cadena de caracteres. Ejemplo: `Planta ornamental` |
+| Atributo | Descripción |
+|---|---|
+| `ID` | Identificador único del producto. |
+| `Tipo Producto` | Tipo o categoría del producto. |
 
 ### Ejemplo
 
@@ -101,10 +101,10 @@ La entidad **Empleado** representa a las personas que trabajan en los viveros y 
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `DNI` | Identificador del empleado. | Cadena con formato de DNI. Ejemplo: `12345678A` |
-| `Nombre` | Nombre del empleado. | Cadena de caracteres. Ejemplo: `Juan Pérez` |
+| Atributo | Descripción |
+|---|---|
+| `DNI` | Identificador del empleado. |
+| `Nombre` | Nombre del empleado. |
 
 ### Ejemplo
 
@@ -123,12 +123,12 @@ La entidad **Cliente** representa a las personas registradas en el sistema que p
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `ID` | Identificador único del cliente. | Entero positivo. Ejemplo: `25` |
-| `Fecha ingreso` | Fecha en la que el cliente se registró en el sistema. | Fecha válida. Ejemplo: `2026-09-15` |
-| `Compras mensuales` | Número de compras realizadas por el cliente durante un mes. | Número entero no negativo. Ejemplo: `8` |
-| `Bonificación` | Bonificación asociada al cliente. | Porcentaje no negativo. Ejemplo: `10%` |
+| Atributo | Descripción |
+|---|---|
+| `ID` | Identificador único del cliente.
+| `Fecha ingreso` | Fecha en la que el cliente se registró en el sistema. |
+| `Compras mensuales` | Número de compras realizadas por el cliente durante un mes. |
+| `Bonificación` | Bonificación asociada al cliente. |
 
 ### Ejemplo
 
@@ -149,9 +149,9 @@ La entidad **Pedido** representa una solicitud realizada por un cliente.
 
 ### Atributos
 
-| Atributo | Descripción | Dominio / Ejemplo |
-|---|---|---|
-| `ID` | Identificador único del pedido. | Entero positivo. Ejemplo: `5001` |
+| Atributo | Descripción |
+|---|---|
+| `ID` | Identificador único del pedido.
 
 ### Ejemplo
 
@@ -332,164 +332,11 @@ De esta forma, cada pedido tiene un empleado responsable de su gestión.
 
 ---
 
-# 4. Dominios de los atributos
-
-## 4.1. Identificadores
-
-Los atributos:
-
-- `Vivero.ID`
-- `Zona.ID`
-- `Producto.ID`
-- `Cliente.ID`
-- `Pedido.ID`
-
-deben ser valores enteros positivos y únicos dentro de su entidad.
-
-Por ejemplo, `15` sería un identificador válido, mientras que `-5` no sería válido.
-
----
-
-## 4.2. Coordenadas geográficas
-
-Los atributos `Latitud` y `Longitud` deben respetar los rangos geográficos válidos.
-
-Para la latitud:
-
-- `-90 ≤ Latitud ≤ 90`
-
-Para la longitud:
-
-- `-180 ≤ Longitud ≤ 180`
-
-Ejemplo válido:
-
-- **Latitud:** `28.4636`
-- **Longitud:** `-16.2518`
-
-Ejemplo no válido:
-
-- **Latitud:** `120`
-- **Longitud:** `-250`
-
----
-
-## 4.3. Nombres
-
-Los atributos `Nombre`, `Nombre Zona` y `Tipo Producto` deben contener cadenas de caracteres.
-
-Ejemplos:
-
-- `Nombre`: `Juan Pérez`
-- `Nombre Zona`: `Zona Norte`
-- `Tipo Producto`: `Planta ornamental`
-
-No deberían aceptar cadenas vacías.
-
----
-
-## 4.4. Fechas
-
-Los atributos:
-
-- `Fecha ingreso`
-- `Inicio`
-- `Fin`
-
-deben representar fechas válidas.
-
-En el caso de una asignación, debe cumplirse:
-
-- `Inicio ≤ Fin`
-
-Por ejemplo:
-
-- **Inicio:** `2026-09-01`
-- **Fin:** `2026-12-31`
-
-es un periodo válido.
-
----
-
-## 4.5. Cantidad disponible
-
-El atributo `Cantidad disponible` representa el número de unidades de un producto disponibles en una zona.
-
-Debe ser un número entero no negativo.
-
-Ejemplos:
-
-- `150` → válido.
-- `0` → válido.
-- `-20` → no válido.
-
----
-
-## 4.6. Compras mensuales
-
-El atributo `Compras mensuales` representa el número de compras realizadas por un cliente durante un mes.
-
-Debe ser un número entero no negativo.
-
-Ejemplos:
-
-- `8` → válido.
-- `0` → válido.
-- `-2` → no válido.
-
----
-
-## 4.7. Bonificación
-
-El atributo `Bonificación` representa la bonificación asociada a un cliente.
-
-Si se interpreta como un porcentaje, su dominio será:
-
-- `0 ≤ Bonificación ≤ 100`
-
-Ejemplos:
-
-- `10%` → válido.
-- `50%` → válido.
-- `120%` → no válido.
-
----
-
-## 4.8. Productividad
-
-El atributo `Productividad` representa el rendimiento asociado al puesto de un empleado.
-
-Si se expresa como porcentaje, su dominio será:
-
-- `0 ≤ Productividad ≤ 100`
-
-Ejemplos:
-
-- `92` → válido.
-- `75` → válido.
-- `120` → no válido.
-
----
-
-## 4.9. DNI
-
-El atributo `DNI` identifica de forma única a cada empleado.
-
-Debe ser una cadena de caracteres que siga el formato establecido para un DNI español.
-
-Ejemplo:
-
-- `12345678A`
-
-Además, no puede existir el mismo DNI asociado a dos empleados diferentes.
-
----
-
-# 5. Restricciones semánticas
+# 4. Restricciones semánticas
 
 Además de las restricciones estructurales derivadas de las cardinalidades, se establecen las siguientes restricciones semánticas.
 
-## 5.1. Identificadores únicos
+## 4.1. Identificadores únicos
 
 Los identificadores de cada entidad deben ser únicos:
 
@@ -504,7 +351,7 @@ No puede haber dos entidades del mismo tipo con el mismo identificador.
 
 ---
 
-## 5.2. Un vivero pertenece a una única zona
+## 4.2. Un vivero pertenece a una única zona
 
 Cada vivero debe estar asociado a una única zona.
 
@@ -512,7 +359,7 @@ Un mismo vivero no puede pertenecer simultáneamente a dos zonas diferentes.
 
 ---
 
-## 5.3. Un pedido pertenece a un único cliente
+## 4.3. Un pedido pertenece a un único cliente
 
 Cada pedido debe estar asociado a un único cliente.
 
@@ -520,7 +367,7 @@ Un pedido no puede pertenecer simultáneamente a dos clientes diferentes.
 
 ---
 
-## 5.4. Un pedido es gestionado por un único empleado
+## 4.4. Un pedido es gestionado por un único empleado
 
 Cada pedido debe ser gestionado por un único empleado.
 
@@ -528,7 +375,7 @@ Esto permite identificar al empleado responsable de cada pedido.
 
 ---
 
-## 5.5. Cantidades no negativas
+## 4.5. Cantidades no negativas
 
 La cantidad disponible de cualquier producto no puede ser negativa.
 
@@ -538,7 +385,7 @@ Por tanto:
 
 ---
 
-## 5.6. Coherencia temporal
+## 4.6. Coherencia temporal
 
 Cuando una asignación tenga una fecha de inicio y una fecha de finalización, debe cumplirse:
 
@@ -548,7 +395,7 @@ No puede existir una asignación cuyo periodo finalice antes de comenzar.
 
 ---
 
-## 5.7. Coordenadas válidas
+## 4.7. Coordenadas válidas
 
 Las coordenadas geográficas de los viveros y las zonas deben encontrarse dentro de los rangos válidos:
 
@@ -557,7 +404,7 @@ Las coordenadas geográficas de los viveros y las zonas deben encontrarse dentro
 
 ---
 
-## 5.8. Integridad referencial
+## 4.8. Integridad referencial
 
 Las relaciones entre entidades deben mantener la correspondencia entre los registros existentes.
 
@@ -570,7 +417,7 @@ Por ejemplo:
 
 ---
 
-# 6. Resumen del modelo
+# 5. Resumen del modelo
 
 El modelo representa un sistema de gestión de viveros en el que:
 
