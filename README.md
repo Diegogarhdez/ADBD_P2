@@ -34,8 +34,8 @@ La entidad **Vivero** representa cada uno de los viveros gestionados por el sist
 | Atributo | Descripción | Dominio / Ejemplo |
 |---|---|---|
 | `ID` | Identificador único del vivero. | Entero positivo. Ejemplo: `15` |
-| `Latitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-90` y `90`. Ejemplo: `28.4636` |
-| `Longitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-180` y `180`. Ejemplo: `-16.2518` |
+| `Latitud` | Coordenada geográfica de la ubicación del vivero. | Número real. Ejemplo: `28.4636` |
+| `Longitud` | Coordenada geográfica de la ubicación del vivero. | Número real. Ejemplo: `-16.2518` |
 
 ### Ejemplo
 
@@ -59,8 +59,8 @@ La entidad **Zona** representa una zona geográfica en la que se encuentran uno 
 |---|---|---|
 | `ID` | Identificador único de la zona. | Entero positivo. Ejemplo: `3` |
 | `Nombre Zona` | Nombre identificativo de la zona. | Cadena de caracteres. Ejemplo: `Zona Norte` |
-| `Latitud` | Coordenada geográfica asociada a la zona. | Número real entre `-90` y `90`. Ejemplo: `28.5000` |
-| `Longitud` | Coordenada geográfica asociada a la zona. | Número real entre `-180` y `180`. Ejemplo: `-16.3000` |
+| `Latitud` | Coordenada geográfica asociada a la zona. | Número real. Ejemplo: `28.5000` |
+| `Longitud` | Coordenada geográfica asociada a la zona. | Número real. Ejemplo: `-16.3000` |
 
 ### Ejemplo
 
