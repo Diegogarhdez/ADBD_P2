@@ -8,11 +8,11 @@ Este repositorio contiene el modelo Entidad/Relación correspondiente al sistema
 
 El repositorio contiene los siguientes archivos:
 
-- `modelo.drawio`: diagrama Entidad/Relación en formato editable de Draw.io.
-- `modelo.png`: representación gráfica del modelo en formato PNG.
+- `ADBD_P2.drawio`: diagrama Entidad/Relación en formato editable de Draw.io.
+- `ADBD_P2.drawio.png`: representación gráfica del modelo en formato PNG.
 - `README.md`: documentación detallada del modelo Entidad/Relación.
 
-![modelo](./modelo.png)
+![modelo](./ADBD_P2.drawio.png)
 
 ---
 
