@@ -1,4 +1,6 @@
-# Modelo Entidad/Relación
+# ADBD_P2: Modelo Entidad/Relación
+* Marcos Barbuzano Socorro
+* Diego García Hernández
 
 Este repositorio contiene el modelo Entidad/Relación correspondiente al sistema de gestión de viveros, zonas, productos, empleados, clientes y pedidos.
 
@@ -9,6 +11,8 @@ El repositorio contiene los siguientes archivos:
 - `modelo.drawio`: diagrama Entidad/Relación en formato editable de Draw.io.
 - `modelo.png`: representación gráfica del modelo en formato PNG.
 - `README.md`: documentación detallada del modelo Entidad/Relación.
+
+[./modelo.png]
 
 ---
 
