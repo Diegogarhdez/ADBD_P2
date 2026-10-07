@@ -1,425 +1,586 @@
-# ADBD_P2
+# Modelo Entidad/Relación
 
-Modelo Entidad/Relación del sistema de gestión de viveros
+Este repositorio contiene el modelo Entidad/Relación correspondiente al sistema de gestión de viveros, zonas, productos, empleados, clientes y pedidos.
 
-Este repositorio contiene el modelo Entidad/Relación correspondiente al escenario de gestión de viveros, zonas, productos, empleados, clientes y pedidos.
+## Archivos del repositorio
 
-El modelo se ha representado mediante un diagrama E/R, incluyendo las entidades, atributos, relaciones y cardinalidades correspondientes.
+El repositorio contiene los siguientes archivos:
 
-Archivos del modelo
+- `modelo.drawio`: diagrama Entidad/Relación en formato editable de Draw.io.
+- `modelo.png`: representación gráfica del modelo en formato PNG.
+- `README.md`: documentación detallada del modelo Entidad/Relación.
 
-El repositorio debe contener los siguientes archivos:
+---
 
-.
-├── modelo.drawio
-├── modelo.png
-└── README.md
-modelo.drawio: diagrama Entidad/Relación en formato editable de diagrams.net (Draw.io).
-modelo.png: representación gráfica del modelo en formato PNG.
-README.md: descripción detallada del modelo, sus entidades, atributos, relaciones, cardinalidades y restricciones semánticas.
-1. Entidades
+# 1. Entidades
 
 El modelo está compuesto por las siguientes entidades:
 
-Vivero
-Zona
-Producto
-Empleado
-Cliente
-Pedido
-1.1. Vivero
+- **Vivero**
+- **Zona**
+- **Producto**
+- **Empleado**
+- **Cliente**
+- **Pedido**
 
-La entidad Vivero representa cada uno de los viveros gestionados por el sistema.
+---
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-ID	Identificador único del vivero.	Entero positivo. Ejemplo: 15
-Latitud	Coordenada geográfica de la ubicación del vivero.	Número real entre -90 y 90. Ejemplo: 28.4636
-Longitud	Coordenada geográfica de la ubicación del vivero.	Número real entre -180 y 180. Ejemplo: -16.2518
+## 1.1. Vivero
 
-El atributo ID identifica de forma unívoca a cada vivero.
+La entidad **Vivero** representa cada uno de los viveros gestionados por el sistema.
 
-Ejemplo:
+### Atributos
 
-Vivero
-ID: 15
-Latitud: 28.4636
-Longitud: -16.2518
-1.2. Zona
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `ID` | Identificador único del vivero. | Entero positivo. Ejemplo: `15` |
+| `Latitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-90` y `90`. Ejemplo: `28.4636` |
+| `Longitud` | Coordenada geográfica de la ubicación del vivero. | Número real entre `-180` y `180`. Ejemplo: `-16.2518` |
 
-La entidad Zona representa una zona geográfica en la que pueden encontrarse uno o varios viveros.
+### Ejemplo
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-ID	Identificador único de la zona.	Entero positivo. Ejemplo: 3
-Nombre Zona	Nombre que identifica la zona.	Cadena de caracteres. Ejemplo: "Zona Norte"
-Latitud	Coordenada geográfica asociada a la zona.	Real entre -90 y 90. Ejemplo: 28.5000
-Longitud	Coordenada geográfica asociada a la zona.	Real entre -180 y 180. Ejemplo: -16.3000
+Un vivero podría tener los siguientes valores:
 
-Ejemplo:
+- **ID:** `15`
+- **Latitud:** `28.4636`
+- **Longitud:** `-16.2518`
 
-Zona
-ID: 3
-Nombre Zona: "Zona Norte"
-Latitud: 28.5000
-Longitud: -16.3000
-1.3. Producto
+El atributo `ID` identifica de forma unívoca a cada vivero.
 
-La entidad Producto representa los diferentes productos que pueden estar disponibles en los viveros.
+---
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-ID	Identificador único del producto.	Entero positivo. Ejemplo: 102
-Tipo Producto	Tipo o categoría a la que pertenece el producto.	Cadena de caracteres. Ejemplo: "Planta ornamental"
+## 1.2. Zona
 
-Ejemplo:
+La entidad **Zona** representa una zona geográfica en la que se encuentran uno o varios viveros.
 
-Producto
-ID: 102
-Tipo Producto: "Planta ornamental"
+### Atributos
 
-El identificador permite distinguir productos incluso cuando varios pertenecen al mismo tipo.
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `ID` | Identificador único de la zona. | Entero positivo. Ejemplo: `3` |
+| `Nombre Zona` | Nombre identificativo de la zona. | Cadena de caracteres. Ejemplo: `Zona Norte` |
+| `Latitud` | Coordenada geográfica asociada a la zona. | Número real entre `-90` y `90`. Ejemplo: `28.5000` |
+| `Longitud` | Coordenada geográfica asociada a la zona. | Número real entre `-180` y `180`. Ejemplo: `-16.3000` |
 
-1.4. Empleado
+### Ejemplo
 
-La entidad Empleado representa a las personas que trabajan en los viveros y gestionan los pedidos.
+Una zona podría tener los siguientes valores:
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-DNI	Identificador oficial del empleado.	Cadena con formato de DNI. Ejemplo: "12345678A"
-Nombre	Nombre del empleado.	Cadena de caracteres. Ejemplo: "Juan Pérez"
+- **ID:** `3`
+- **Nombre Zona:** `Zona Norte`
+- **Latitud:** `28.5000`
+- **Longitud:** `-16.3000`
 
-El DNI identifica de forma única a cada empleado.
+---
 
-Ejemplo:
+## 1.3. Producto
 
-Empleado
-DNI: "12345678A"
-Nombre: "Juan Pérez"
-1.5. Cliente
+La entidad **Producto** representa los diferentes productos disponibles en las zonas gestionadas por el sistema.
 
-La entidad Cliente representa a las personas que realizan pedidos en el sistema.
+### Atributos
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-ID	Identificador único del cliente.	Entero positivo. Ejemplo: 25
-Fecha ingreso	Fecha en la que el cliente se registró en el sistema.	Fecha válida. Ejemplo: 2026-09-15
-Compras mensuales	Cantidad o volumen de compras realizadas mensualmente por el cliente.	Número no negativo. Ejemplo: 8
-Bonificación	Bonificación asociada al cliente.	Valor o porcentaje no negativo. Ejemplo: 10%
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `ID` | Identificador único del producto. | Entero positivo. Ejemplo: `102` |
+| `Tipo Producto` | Tipo o categoría del producto. | Cadena de caracteres. Ejemplo: `Planta ornamental` |
 
-El atributo Bonificación aparece representado mediante un doble óvalo, por lo que se interpreta como un atributo multivaluado en el modelo conceptual.
+### Ejemplo
 
-Ejemplo:
+Un producto podría tener los siguientes valores:
 
-Cliente
-ID: 25
-Fecha ingreso: 2026-09-15
-Compras mensuales: 8
-Bonificación: 10%
-1.6. Pedido
+- **ID:** `102`
+- **Tipo Producto:** `Planta ornamental`
 
-La entidad Pedido representa una solicitud realizada por un cliente.
+El `ID` permite diferenciar productos aunque pertenezcan al mismo tipo.
 
-Atributos
-Atributo	Descripción	Dominio / Ejemplo
-ID	Identificador único del pedido.	Entero positivo. Ejemplo: 5001
+---
 
-Ejemplo:
+## 1.4. Empleado
 
-Pedido
-ID: 5001
-2. Relaciones
+La entidad **Empleado** representa a las personas que trabajan en los viveros y se encargan de gestionar los pedidos.
+
+### Atributos
+
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `DNI` | Identificador del empleado. | Cadena con formato de DNI. Ejemplo: `12345678A` |
+| `Nombre` | Nombre del empleado. | Cadena de caracteres. Ejemplo: `Juan Pérez` |
+
+### Ejemplo
+
+Un empleado podría tener los siguientes valores:
+
+- **DNI:** `12345678A`
+- **Nombre:** `Juan Pérez`
+
+El `DNI` identifica de forma unívoca a cada empleado.
+
+---
+
+## 1.5. Cliente
+
+La entidad **Cliente** representa a las personas registradas en el sistema que pueden realizar pedidos.
+
+### Atributos
+
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `ID` | Identificador único del cliente. | Entero positivo. Ejemplo: `25` |
+| `Fecha ingreso` | Fecha en la que el cliente se registró en el sistema. | Fecha válida. Ejemplo: `2026-09-15` |
+| `Compras mensuales` | Número de compras realizadas por el cliente durante un mes. | Número entero no negativo. Ejemplo: `8` |
+| `Bonificación` | Bonificación asociada al cliente. | Porcentaje no negativo. Ejemplo: `10%` |
+
+### Ejemplo
+
+Un cliente podría tener los siguientes valores:
+
+- **ID:** `25`
+- **Fecha ingreso:** `2026-09-15`
+- **Compras mensuales:** `8`
+- **Bonificación:** `10%`
+
+En el diagrama, `Bonificación` aparece representada mediante un doble óvalo, por lo que se considera un atributo multivaluado.
+
+---
+
+## 1.6. Pedido
+
+La entidad **Pedido** representa una solicitud realizada por un cliente.
+
+### Atributos
+
+| Atributo | Descripción | Dominio / Ejemplo |
+|---|---|---|
+| `ID` | Identificador único del pedido. | Entero positivo. Ejemplo: `5001` |
+
+### Ejemplo
+
+Un pedido podría tener:
+
+- **ID:** `5001`
+
+Cada pedido se identifica de forma única mediante su `ID`.
+
+---
+
+# 2. Relaciones
 
 El modelo contiene las siguientes relaciones:
 
-Pertenece
-Contiene
-Asignado
-Realiza
-Gestiona
-2.1. Pertenece
+1. **Pertenece**
+2. **Contiene**
+3. **Asignado**
+4. **Realiza**
+5. **Gestiona**
 
-La relación Pertenece establece la correspondencia entre un Vivero y una Zona.
+---
 
-Vivero ─── Pertenece ─── Zona
-Cardinalidad
-Un Vivero pertenece obligatoriamente a una única Zona: 1:1.
-Una Zona puede tener uno o varios Viveros: 1:N.
+## 2.1. Pertenece
 
-Por tanto:
+La relación **Pertenece** establece la relación entre los viveros y las zonas.
 
-Zona 1 ───── N Vivero
+### Cardinalidad
 
-Esto significa que una zona puede agrupar varios viveros, mientras que un vivero no puede pertenecer simultáneamente a varias zonas.
+- Cada **Vivero** pertenece a una única **Zona**.
+- Una **Zona** puede tener uno o varios **Viveros**.
 
-Ejemplo
-Zona Norte
- ├── Vivero 1
- ├── Vivero 2
- └── Vivero 3
-2.2. Contiene
+Por tanto, la relación es de tipo **1:N**, considerando `Zona` como el lado 1 y `Vivero` como el lado N.
 
-La relación Contiene representa los productos disponibles en una zona.
+### Ejemplo
 
-Zona ─── Contiene ─── Producto
-Cardinalidad
+Una zona puede contener varios viveros:
 
-La relación es N:M:
+- Zona Norte → Vivero 1
+- Zona Norte → Vivero 2
+- Zona Norte → Vivero 3
 
-Una Zona puede contener varios productos.
-Un Producto puede estar disponible en varias zonas.
+Sin embargo, un vivero concreto solo puede pertenecer a una única zona.
 
-Por tanto:
+---
 
-Zona N ───── M Producto
-Atributo de la relación
+## 2.2. Contiene
+
+La relación **Contiene** representa los productos disponibles en cada zona.
+
+### Cardinalidad
+
+La relación es de tipo **N:M**:
+
+- Una **Zona** puede contener varios **Productos**.
+- Un **Producto** puede encontrarse en varias **Zonas**.
+
+### Atributos de la relación
 
 La relación posee el atributo:
 
-Cantidad disponible
+- `Cantidad disponible`
 
-Este atributo indica la cantidad de un determinado producto disponible en una determinada zona.
+Este atributo representa la cantidad disponible de un determinado producto dentro de una determinada zona.
 
-Ejemplo
-Zona Norte ─── Producto 102 ─── Cantidad disponible: 150
-Zona Norte ─── Producto 205 ─── Cantidad disponible: 80
-Zona Sur   ─── Producto 102 ─── Cantidad disponible: 40
+### Ejemplo
 
-El mismo producto puede aparecer en diferentes zonas con cantidades disponibles diferentes.
+Una posible situación sería:
 
-2.3. Asignado
+| Zona | Producto | Cantidad disponible |
+|---|---|---:|
+| Zona Norte | Producto 102 | 150 |
+| Zona Norte | Producto 205 | 80 |
+| Zona Sur | Producto 102 | 40 |
 
-La relación Asignado establece la asignación de empleados a viveros.
+El producto `102` puede encontrarse en varias zonas y tener una cantidad disponible diferente en cada una de ellas.
 
-Vivero ─── Asignado ─── Empleado
-Cardinalidad
+---
 
-Según el modelo:
+## 2.3. Asignado
 
-Cada Vivero tiene asignado exactamente un Empleado: 1:1.
-Un Empleado puede estar asignado a uno o varios Viveros: 1:N.
+La relación **Asignado** representa la asignación de empleados a viveros.
 
-Por tanto:
+### Cardinalidad
 
-Empleado 1 ───── N Vivero
-Atributos de la relación
+- Un **Vivero** tiene asignado un **Empleado**.
+- Un **Empleado** puede estar asignado a uno o varios **Viveros**.
 
-La relación contiene el atributo compuesto Puesto, que describe las características de la asignación del empleado.
+Por tanto, la relación es de tipo **1:N**, considerando `Empleado` como el lado 1 y `Vivero` como el lado N.
 
-Puesto está compuesto por:
+### Atributo compuesto `Puesto`
 
-Tipo tarea
-Productividad
-Fecha
+La relación posee el atributo compuesto `Puesto`, que contiene:
 
-A su vez, Fecha se descompone en:
+- `Tipo tarea`
+- `Productividad`
+- `Fecha`
 
-Inicio
-Fin
-Ejemplo
-Empleado: Juan Pérez
-Vivero: Vivero 15
+A su vez, el atributo `Fecha` está compuesto por:
 
-Puesto:
-    Tipo tarea: "Mantenimiento"
-    Productividad: 92
-    Inicio: 2026-09-01
-    Fin: 2026-12-31
+- `Inicio`
+- `Fin`
 
-De esta forma, las características del puesto pertenecen a la asignación, y no directamente al empleado ni al vivero.
+Estos atributos describen las características de la asignación concreta de un empleado a un vivero.
 
-2.4. Realiza
+### Ejemplo
 
-La relación Realiza representa los pedidos que realizan los clientes.
+Una asignación podría ser:
 
-Cliente ─── Realiza ─── Pedido
-Cardinalidad
+| Atributo | Valor |
+|---|---|
+| Empleado | Juan Pérez |
+| Vivero | 15 |
+| Tipo tarea | Mantenimiento |
+| Productividad | 92 |
+| Inicio | 2026-09-01 |
+| Fin | 2026-12-31 |
 
-Según el diagrama:
+La información del puesto pertenece a la relación de asignación y no directamente al empleado o al vivero.
 
-Un Cliente realiza uno o varios pedidos: 1:N.
-Cada Pedido pertenece a un único cliente: 1:1.
+---
 
-Por tanto:
+## 2.4. Realiza
 
-Cliente 1 ───── N Pedido
-Ejemplo
-Cliente 25
- ├── Pedido 5001
- ├── Pedido 5002
- └── Pedido 5003
+La relación **Realiza** representa los pedidos realizados por los clientes.
 
-Los tres pedidos pertenecen al mismo cliente, pero cada pedido está asociado a un único cliente.
+### Cardinalidad
 
-2.5. Gestiona
+- Un **Cliente** puede realizar uno o varios **Pedidos**.
+- Cada **Pedido** es realizado por un único **Cliente**.
 
-La relación Gestiona representa la gestión de los pedidos por parte de los empleados.
+Por tanto, la relación es de tipo **1:N**, considerando `Cliente` como el lado 1 y `Pedido` como el lado N.
 
-Empleado ─── Gestiona ─── Pedido
-Cardinalidad
+### Ejemplo
 
-Según el modelo:
+Un cliente puede realizar varios pedidos:
 
-Un Empleado puede gestionar uno o varios pedidos: 1:N.
-Cada Pedido es gestionado por un único empleado: 1:1.
+- Cliente 25 → Pedido 5001
+- Cliente 25 → Pedido 5002
+- Cliente 25 → Pedido 5003
 
-Por tanto:
+Los tres pedidos pertenecen al cliente `25`, mientras que cada pedido está asociado exclusivamente a ese cliente.
 
-Empleado 1 ───── N Pedido
-Ejemplo
-Empleado: Juan Pérez
- ├── Pedido 5001
- ├── Pedido 5004
- └── Pedido 5008
+---
 
-Esto permite determinar qué empleado se encarga de cada pedido.
+## 2.5. Gestiona
 
-3. Resumen de cardinalidades
-Relación	Entidad 1	Entidad 2	Cardinalidad
-Pertenece	Vivero	Zona	N:1
-Contiene	Zona	Producto	N:M
-Asignado	Vivero	Empleado	1:N
-Realiza	Cliente	Pedido	1:N
-Gestiona	Empleado	Pedido	1:N
+La relación **Gestiona** representa la gestión de los pedidos por parte de los empleados.
 
-De forma equivalente, tomando como referencia la entidad que aparece primero en la tabla:
+### Cardinalidad
 
-Vivero   N ─── 1 Zona
-Zona     N ─── M Producto
-Vivero   1 ─── N Empleado
-Cliente  1 ─── N Pedido
-Empleado 1 ─── N Pedido
+- Un **Empleado** puede gestionar uno o varios **Pedidos**.
+- Cada **Pedido** es gestionado por un único **Empleado**.
 
-Nota: las cardinalidades se han interpretado directamente a partir de las etiquetas 1:1, 1:N y N:M del diagrama.
+Por tanto, la relación es de tipo **1:N**, considerando `Empleado` como el lado 1 y `Pedido` como el lado N.
 
-4. Dominios de los atributos
+### Ejemplo
 
-Para garantizar la coherencia de los datos, se pueden establecer los siguientes dominios:
+Un empleado puede gestionar varios pedidos:
 
-Identificadores
+- Juan Pérez → Pedido 5001
+- Juan Pérez → Pedido 5004
+- Juan Pérez → Pedido 5008
+
+De esta forma, cada pedido tiene un empleado responsable de su gestión.
+
+---
+
+# 3. Resumen de cardinalidades
+
+| Relación | Entidad 1 | Cardinalidad | Entidad 2 |
+|---|---|---|---|
+| `Pertenece` | Zona | `1:N` | Vivero |
+| `Contiene` | Zona | `N:M` | Producto |
+| `Asignado` | Empleado | `1:N` | Vivero |
+| `Realiza` | Cliente | `1:N` | Pedido |
+| `Gestiona` | Empleado | `1:N` | Pedido |
+
+---
+
+# 4. Dominios de los atributos
+
+## 4.1. Identificadores
 
 Los atributos:
 
-Vivero.ID
-Zona.ID
-Producto.ID
-Cliente.ID
-Pedido.ID
+- `Vivero.ID`
+- `Zona.ID`
+- `Producto.ID`
+- `Cliente.ID`
+- `Pedido.ID`
 
 deben ser valores enteros positivos y únicos dentro de su entidad.
 
-Coordenadas
+Por ejemplo, `15` sería un identificador válido, mientras que `-5` no sería válido.
 
-Los atributos Latitud y Longitud deben respetar los rangos geográficos estándar:
+---
 
--90 ≤ Latitud ≤ 90
--180 ≤ Longitud ≤ 180
+## 4.2. Coordenadas geográficas
+
+Los atributos `Latitud` y `Longitud` deben respetar los rangos geográficos válidos.
+
+Para la latitud:
+
+- `-90 ≤ Latitud ≤ 90`
+
+Para la longitud:
+
+- `-180 ≤ Longitud ≤ 180`
+
+Ejemplo válido:
+
+- **Latitud:** `28.4636`
+- **Longitud:** `-16.2518`
+
+Ejemplo no válido:
+
+- **Latitud:** `120`
+- **Longitud:** `-250`
+
+---
+
+## 4.3. Nombres
+
+Los atributos `Nombre`, `Nombre Zona` y `Tipo Producto` deben contener cadenas de caracteres.
+
+Ejemplos:
+
+- `Nombre`: `Juan Pérez`
+- `Nombre Zona`: `Zona Norte`
+- `Tipo Producto`: `Planta ornamental`
+
+No deberían aceptar cadenas vacías.
+
+---
+
+## 4.4. Fechas
+
+Los atributos:
+
+- `Fecha ingreso`
+- `Inicio`
+- `Fin`
+
+deben representar fechas válidas.
+
+En el caso de una asignación, debe cumplirse:
+
+- `Inicio ≤ Fin`
 
 Por ejemplo:
 
-Latitud: 28.4636   ✓
-Longitud: -16.2518 ✓
+- **Inicio:** `2026-09-01`
+- **Fin:** `2026-12-31`
 
-Mientras que:
+es un periodo válido.
 
-Latitud: 120       ✗
-Longitud: -250     ✗
+---
 
-no serían valores válidos.
+## 4.5. Cantidad disponible
 
-Fechas
+El atributo `Cantidad disponible` representa el número de unidades de un producto disponibles en una zona.
 
-Fecha ingreso, Inicio y Fin deben corresponder a fechas válidas.
+Debe ser un número entero no negativo.
 
-Además, para una asignación:
+Ejemplos:
 
-Inicio ≤ Fin
-Cantidad disponible
+- `150` → válido.
+- `0` → válido.
+- `-20` → no válido.
 
-Cantidad disponible debe ser un número entero mayor o igual que cero:
+---
 
-Cantidad disponible ≥ 0
+## 4.6. Compras mensuales
 
-No tendría sentido almacenar una cantidad negativa de productos.
+El atributo `Compras mensuales` representa el número de compras realizadas por un cliente durante un mes.
 
-Compras mensuales
+Debe ser un número entero no negativo.
 
-Compras mensuales debe ser un número no negativo:
+Ejemplos:
 
-Compras mensuales ≥ 0
-Productividad
+- `8` → válido.
+- `0` → válido.
+- `-2` → no válido.
 
-La productividad debería representar un valor no negativo. Si se interpreta como porcentaje:
+---
 
-0 ≤ Productividad ≤ 100
-DNI
+## 4.7. Bonificación
 
-El DNI debe ser único para cada empleado y respetar el formato establecido para los documentos nacionales de identidad.
+El atributo `Bonificación` representa la bonificación asociada a un cliente.
 
-5. Restricciones semánticas
+Si se interpreta como un porcentaje, su dominio será:
 
-Además de las restricciones estructurales derivadas de las cardinalidades, se proponen las siguientes restricciones semánticas.
+- `0 ≤ Bonificación ≤ 100`
 
-5.1. Identificadores únicos
+Ejemplos:
 
-Los identificadores de cada entidad deben ser únicos.
+- `10%` → válido.
+- `50%` → válido.
+- `120%` → no válido.
 
-Vivero.ID       → único
-Zona.ID         → único
-Producto.ID     → único
-Cliente.ID      → único
-Pedido.ID       → único
-Empleado.DNI    → único
-5.2. Un pedido pertenece a un único cliente
+---
 
-Un pedido no puede estar asociado simultáneamente a varios clientes.
+## 4.8. Productividad
 
-Pedido → exactamente un Cliente
-5.3. Un pedido es gestionado por un único empleado
+El atributo `Productividad` representa el rendimiento asociado al puesto de un empleado.
 
-Cada pedido debe tener asignado un único empleado responsable de su gestión.
+Si se expresa como porcentaje, su dominio será:
 
-Pedido → exactamente un Empleado
-5.4. Un vivero pertenece a una única zona
+- `0 ≤ Productividad ≤ 100`
 
-Un vivero no puede pertenecer simultáneamente a diferentes zonas.
+Ejemplos:
 
-Vivero → exactamente una Zona
-5.5. Cantidades no negativas
+- `92` → válido.
+- `75` → válido.
+- `120` → no válido.
 
-La cantidad disponible de un producto nunca puede ser negativa:
+---
 
-Cantidad disponible ≥ 0
-5.6. Coherencia temporal de los puestos
+## 4.9. DNI
 
-Cuando una asignación tenga una fecha de inicio y una fecha de finalización:
+El atributo `DNI` identifica de forma única a cada empleado.
 
-Fecha inicio ≤ Fecha fin
+Debe ser una cadena de caracteres que siga el formato establecido para un DNI español.
 
-Además, una asignación no debería tener una fecha de finalización anterior a su fecha de inicio, porque incluso las bases de datos tienen límites para la creatividad.
+Ejemplo:
 
-5.7. Consistencia geográfica
+- `12345678A`
 
-Las coordenadas de viveros y zonas deben encontrarse dentro de los rangos válidos de latitud y longitud.
+Además, no puede existir el mismo DNI asociado a dos empleados diferentes.
 
-Esto evita almacenar ubicaciones físicamente imposibles.
+---
 
-5.8. Integridad referencial
+# 5. Restricciones semánticas
 
-Las relaciones deben mantener la correspondencia entre las entidades involucradas.
+Además de las restricciones estructurales derivadas de las cardinalidades, se establecen las siguientes restricciones semánticas.
 
-Por ejemplo, no debería existir un pedido asociado a un cliente inexistente ni un pedido gestionado por un empleado que no esté registrado en el sistema.
+## 5.1. Identificadores únicos
 
-6. Resumen del modelo
+Los identificadores de cada entidad deben ser únicos:
 
-El modelo representa un sistema en el que:
+- `Vivero.ID` → único.
+- `Zona.ID` → único.
+- `Producto.ID` → único.
+- `Cliente.ID` → único.
+- `Pedido.ID` → único.
+- `Empleado.DNI` → único.
 
-Los viveros están situados dentro de zonas.
-Las zonas disponen de diferentes productos, indicando la cantidad disponible de cada uno.
-Los empleados se asignan a los viveros y dicha asignación puede contener información sobre el puesto, las tareas, la productividad y el periodo de asignación.
-Los clientes realizan pedidos.
-Los empleados gestionan esos pedidos.
-Las restricciones de cardinalidad garantizan que las relaciones entre las distintas entidades sean coherentes.
-Los dominios de los atributos evitan valores inválidos, como coordenadas imposibles, cantidades negativas o fechas inconsistentes.
+No puede haber dos entidades del mismo tipo con el mismo identificador.
 
-En conjunto, el modelo permite representar la estructura básica del sistema manteniendo separadas las entidades principales y utilizando relaciones para representar las asociaciones entre ellas.
+---
+
+## 5.2. Un vivero pertenece a una única zona
+
+Cada vivero debe estar asociado a una única zona.
+
+Un mismo vivero no puede pertenecer simultáneamente a dos zonas diferentes.
+
+---
+
+## 5.3. Un pedido pertenece a un único cliente
+
+Cada pedido debe estar asociado a un único cliente.
+
+Un pedido no puede pertenecer simultáneamente a dos clientes diferentes.
+
+---
+
+## 5.4. Un pedido es gestionado por un único empleado
+
+Cada pedido debe ser gestionado por un único empleado.
+
+Esto permite identificar al empleado responsable de cada pedido.
+
+---
+
+## 5.5. Cantidades no negativas
+
+La cantidad disponible de cualquier producto no puede ser negativa.
+
+Por tanto:
+
+- `Cantidad disponible ≥ 0`
+
+---
+
+## 5.6. Coherencia temporal
+
+Cuando una asignación tenga una fecha de inicio y una fecha de finalización, debe cumplirse:
+
+- `Fecha inicio ≤ Fecha fin`
+
+No puede existir una asignación cuyo periodo finalice antes de comenzar.
+
+---
+
+## 5.7. Coordenadas válidas
+
+Las coordenadas geográficas de los viveros y las zonas deben encontrarse dentro de los rangos válidos:
+
+- `-90 ≤ Latitud ≤ 90`
+- `-180 ≤ Longitud ≤ 180`
+
+---
+
+## 5.8. Integridad referencial
+
+Las relaciones entre entidades deben mantener la correspondencia entre los registros existentes.
+
+Por ejemplo:
+
+- No puede existir un pedido asociado a un cliente inexistente.
+- No puede existir un pedido gestionado por un empleado inexistente.
+- No puede existir un vivero asociado a una zona inexistente.
+- No puede existir una relación `Contiene` entre una zona inexistente y un producto inexistente.
+
+---
+
+# 6. Resumen del modelo
+
+El modelo representa un sistema de gestión de viveros en el que:
+
+1. Los **Viveros** pertenecen a determinadas **Zonas**.
+2. Las **Zonas** contienen diferentes **Productos**, indicando la cantidad disponible de cada uno.
+3. Los **Empleados** se asignan a los **Viveros**.
+4. La asignación de un empleado a un vivero contiene información sobre el **Puesto**, incluyendo el tipo de tarea, la productividad y el periodo de asignación.
+5. Los **Clientes** realizan **Pedidos**.
+6. Los **Empleados** gestionan los **Pedidos**.
+7. Las cardinalidades establecen las restricciones de participación de cada entidad en las diferentes relaciones.
+8. Los dominios y restricciones semánticas permiten garantizar la coherencia de los datos almacenados.
+
+El modelo Entidad/Relación constituye la representación conceptual del sistema y puede utilizarse posteriormente como base para su transformación al correspondiente modelo relacional.
